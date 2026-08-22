@@ -17,25 +17,32 @@ npx serve .
 ## Structure
 
 ```text
-index.html            the whole page
+index.html            home — hero (phone demo video), quickstart, "is/isn't"
+crates.html           the crate map (eight crates, one root of trust)
+architecture.html     the one rule + the trait seams
+roadmap.html          milestones (M1–M3 shipped, M4–M7 open)
 assets/css/style.css  design tokens + layout (shares the palette/typography
                        of raio's demo video: cream/blueprint canvas, Fraunces
                        serif, IBM Plex Mono/Sans, rust-orange accent)
-assets/js/main.js     mobile nav, copy-to-clipboard, reveal-on-scroll
-assets/img/           demo GIF/video, OG card, favicon
+assets/js/main.js     off-canvas mobile nav, copy-to-clipboard, reveal-on-scroll
+assets/img/           phone demo video/poster, overview video, OG card, favicon
 ```
+
+The nav, footer, and `<head>` are duplicated on each page (no build step, no
+includes) — keep them in sync when editing.
 
 ## Updating content
 
-Crate map, roadmap milestones, and the "is/isn't" table are hand-synced with
-[`raio/README.md`](https://github.com/andrewSarr/raio/blob/main/README.md) —
-there's no shared data source, so if those change upstream, update
-`index.html` to match.
+The crate map, roadmap milestones, and the "is/isn't" table are hand-synced
+with [`raio/README.md`](https://github.com/andrewSarr/raio/blob/main/README.md)
+— there's no shared data source, so if those change upstream, update the
+relevant page (`crates.html`, `roadmap.html`, `index.html`) to match.
 
-The demo GIF/video and the OG card image (`assets/img/og-image.jpg`) are
-rendered from the Remotion project that lives locally at `raio/promo/`
-(gitignored in the main repo, not published anywhere) — see its `OgCard`
-and `RaioPromo` compositions.
+The hero phone demo (`assets/img/phone-hero.mp4` + `.jpg` poster), the full
+overview video (`assets/img/raio-promo.mp4`), and the OG card image
+(`assets/img/og-image.jpg`) are rendered from the Remotion project that lives
+locally at `raio/promo/` (gitignored in the main repo, not published
+anywhere) — see its `PhoneHero`, `RaioPromo`, and `OgCard` compositions.
 
 ## Deploy
 

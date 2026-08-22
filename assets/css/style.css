@@ -101,7 +101,7 @@ a {
 .nav {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
   background: rgba(253, 251, 247, 0.86);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--grid-strong);
@@ -155,12 +155,33 @@ a {
   color: var(--ink);
 }
 
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  position: relative;
+}
+
+.nav-links a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--rust);
+}
+
+.nav-backdrop {
+  display: none;
+}
+
 .nav-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
+  position: relative;
+  z-index: 70;
 }
 
 .nav-toggle span,
@@ -302,6 +323,35 @@ a {
   color: rgba(253, 251, 247, 0.55);
   padding: 10px 14px;
   border-top: 1px solid rgba(253, 251, 247, 0.1);
+}
+
+/* Phone demo video — the mp4 already carries the phone bezel + drop shadow on a
+   solid cream background that matches the page, so it floats seamlessly. */
+.hero-phone {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-phone video {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+.hero-phone figcaption {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-sub);
+  text-align: center;
+}
+
+.hero-phone figcaption a {
+  text-decoration: underline;
+  text-decoration-color: var(--grid-strong);
+  text-underline-offset: 3px;
 }
 
 /* ---------- quickstart ---------- */
@@ -715,26 +765,78 @@ footer {
 }
 
 @media (max-width: 640px) {
+  /* Off-canvas nav slides in from the RIGHT, not down from the top. */
   .nav-links {
-    position: absolute;
-    top: 64px;
-    left: 0;
+    position: fixed;
+    top: 0;
     right: 0;
-    background: var(--cream);
-    border-bottom: 1px solid var(--grid-strong);
+    height: 100dvh;
+    width: min(320px, 82vw);
     flex-direction: column;
-    align-items: flex-start;
-    padding: 18px 24px 24px;
-    gap: 16px;
-    display: none;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 92px 26px 32px;
+    gap: 18px;
+    background: var(--cream);
+    border-left: 1px solid var(--grid-strong);
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.28s ease;
+    z-index: 60;
+    display: flex;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .nav-links.open {
-    display: flex;
+    transform: translateX(0);
+  }
+
+  .nav-links a:not(.btn) {
+    padding: 4px 0;
+  }
+
+  .nav-links a[aria-current="page"]::after {
+    left: 0;
+    right: auto;
+    width: 22px;
+    bottom: -2px;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 27, 24, 0.34);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+    z-index: 80;
+  }
+
+  .nav-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .nav-toggle {
     display: block;
+  }
+
+  .nav-toggle.open span {
+    background: transparent;
+  }
+
+  .nav-toggle.open span::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle.open span::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .hero-phone video {
+    max-width: 300px;
   }
 
   .crate-grid {

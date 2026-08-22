@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadmap — raio</title>
+<meta name="description" content="raio ships the foundation; the rails are community-owned. The durable LedgerStore and KeyDirectory and the EMVCo QR codec have shipped; the Transport trait, raio-rail, a PAPSS settlement adapter, and the SDK are next.">
+<link rel="canonical" href="https://andrewsarr.github.io/raio-landing/roadmap.html">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html" aria-current="page">Roadmap</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub &nearr;</a>
+    </div>
+  </div>
+</nav>
+<div class="nav-backdrop" data-nav-backdrop hidden></div>
+
+<main>
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="n">05</span><span class="rule"></span>Get involved</span>
+      <h2>The foundation is done. The rails are yours.</h2>
+      <p>raio ships the foundation; the layers above it are community-owned.
+      The direction is <strong>African instant-payment rails, interoperable
+      across providers and borders</strong>. These are the highest-value next
+      steps — pick one, open an issue with the <strong>"Implement a missing
+      crate"</strong> template, and claim it.</p>
+    </div>
+
+    <div class="roadmap-list reveal">
+      <div class="roadmap-item">
+        <span class="milestone">M1</span>
+        <div>
+          <div class="title">A durable LedgerStore</div>
+          <div class="sub">Shipped: raio-ledger-redb (pure-Rust). SQL/Postgres on the same seam are open.</div>
+        </div>
+        <span class="pill shipped">Shipped</span>
+      </div>
+      <div class="roadmap-item">
+        <span class="milestone">M2</span>
+        <div>
+          <div class="title">A durable KeyDirectory</div>
+          <div class="sub">Shipped: raio-dict-redb (pure-Rust). SQL/Postgres on the same seam are open.</div>
+        </div>
+        <span class="pill shipped">Shipped</span>
+      </div>
+      <div class="roadmap-item">
+        <span class="milestone">M3</span>
+        <div>
+          <div class="title">The interoperable QR codec</div>
+          <div class="sub">Shipped: raio-qr — EMVCo Merchant-Presented Mode, the global standard African mobile-money providers use, alongside the Pix raio-brcode.</div>
+        </div>
+        <span class="pill shipped">Shipped</span>
+      </div>
+      <div class="roadmap-item">
+        <span class="milestone">M4</span>
+        <div>
+          <div class="title">A Transport trait + exactly-once delivery</div>
+          <div class="sub">The messaging seam between participants — ISO 20022 messaging + GSMA Mobile Money adapters behind one sync trait.</div>
+        </div>
+        <span class="pill wanted">Help wanted</span>
+      </div>
+      <div class="roadmap-item">
+        <span class="milestone">M5</span>
+        <div>
+          <div class="title">raio-rail</div>
+          <div class="sub">The HTTP clearing-house + participant nodes — payment request &rarr; key resolution &rarr; settlement &rarr; QR/BR Code emission, across nodes.</div>
+        </div>
+        <span class="pill good-first">Good first crate</span>
+      </div>
+      <div class="roadmap-item">
+        <span class="milestone">M6</span>
+        <div>
+          <div class="title">A production SettlementProvider adapter</div>
+          <div class="sub">PAPSS / RTGS / mobile-money adapters — replace the naive example with something real.</div>
+        </div>
+        <span class="pill wanted">Help wanted</span>
+      </div>
+      <div class="roadmap-item">
+        <span class="milestone">M7</span>
+        <div>
+          <div class="title">SDK + operator CLI</div>
+          <div class="sub">The developer experience on top of the rails.</div>
+        </div>
+        <span class="pill wanted">Help wanted</span>
+      </div>
+    </div>
+
+    <div class="roadmap-cta reveal">
+      <a class="btn btn-primary" href="https://github.com/andrewSarr/raio/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Read CONTRIBUTING.md</a>
+      <a class="btn btn-ghost" href="https://github.com/andrewSarr/raio/blob/main/docs/src/roadmap.md" target="_blank" rel="noopener">Full roadmap &nearr;</a>
+      <a class="btn btn-ghost" href="https://github.com/andrewSarr/raio/issues/new/choose" target="_blank" rel="noopener">Open an issue &nearr;</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+      <p class="footer-note">
+        Dual-licensed under MIT OR Apache-2.0. Built for African rails and
+        interoperability. Not affiliated with Pix or the Banco Central do Brasil.
+      </p>
+    </div>
+    <nav class="footer-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/LICENSE-MIT" target="_blank" rel="noopener">License</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

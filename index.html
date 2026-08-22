@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>raio — a Pix-inspired instant-payment foundation in Rust</title>
-<meta name="description" content="raio is an open-source, IO-free instant-payment foundation in Rust: alias-based pay-to-key resolution, an event-sourced double-entry ledger, and an EMV BR Code codec — the root-of-trust layer for you to build on. Not a bank.">
+<title>raio — a Pix-inspired instant-payment foundation for African rails</title>
+<meta name="description" content="raio is an open-source, IO-free instant-payment foundation in Rust, built for African rails and interoperability: alias-based pay-to-key resolution, an event-sourced double-entry ledger, and EMVCo/Pix QR codecs — the root-of-trust layer for you to build on. Not a bank.">
 <link rel="canonical" href="https://andrewsarr.github.io/raio-landing/">
 
 <!-- Open Graph / Twitter card -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="raio">
-<meta property="og:title" content="raio — a Pix-inspired instant-payment foundation in Rust">
-<meta property="og:description" content="IO-free root of trust, an event-sourced double-entry ledger, and an EMV BR Code codec, packaged as standalone crates. Not a bank — the foundation for you to build on.">
+<meta property="og:title" content="raio — a Pix-inspired instant-payment foundation for African rails">
+<meta property="og:description" content="IO-free root of trust, an event-sourced double-entry ledger, and Pix + EMVCo QR codecs, packaged as standalone crates. Currency-aware and interoperable. Not a bank — the foundation for you to build on.">
 <meta property="og:image" content="https://andrewsarr.github.io/raio-landing/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://andrewsarr.github.io/raio-landing/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="raio — a Pix-inspired instant-payment foundation in Rust">
-<meta name="twitter:description" content="IO-free root of trust, an event-sourced double-entry ledger, and an EMV BR Code codec, packaged as standalone crates.">
+<meta name="twitter:title" content="raio — a Pix-inspired instant-payment foundation for African rails">
+<meta name="twitter:description" content="IO-free root of trust, an event-sourced double-entry ledger, and Pix + EMVCo QR codecs, packaged as standalone crates. Currency-aware and interoperable.">
 <meta name="twitter:image" content="https://andrewsarr.github.io/raio-landing/assets/img/og-image.jpg">
 
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -31,44 +31,53 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a href="#" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
-    <div class="nav-links">
-      <a href="#crates">Crates</a>
-      <a href="#architecture">Architecture</a>
-      <a href="#roadmap">Roadmap</a>
+    <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="crates.html" aria-current="page">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Roadmap</a>
       <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
       <a class="btn btn-primary btn-sm" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub &nearr;</a>
     </div>
   </div>
 </nav>
+<div class="nav-backdrop" data-nav-backdrop hidden></div>
 
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="n">01</span><span class="rule"></span>Open source &middot; Rust</span>
-      <h1>An instant-payment foundation, built in the <span class="accent">open</span>.</h1>
+      <span class="eyebrow"><span class="n">01</span><span class="rule"></span>Open source &middot; Rust &middot; built for African rails</span>
+      <h1>An instant-payment foundation, built in the <span class="accent">open</span> — for African rails and interoperability.</h1>
       <p class="lead">
-        raio borrows the best ideas from Brazil's Pix — alias-based pay-to-key,
-        24/7 instant transfer, the "copia e cola" BR Code — and packages them as
-        a correct, federatable foundation. It is <strong>not</strong> a bank.
-        It ships the root-of-trust types and the trait seams; the community
-        builds the rails.
+        raio learns from Brazil's Pix — alias-based pay-to-key, 24/7 instant
+        transfer, the "copia e cola" QR — and packages those ideas as a correct,
+        federatable foundation. It is <strong>currency-aware</strong> (the major
+        African currencies, incl. the zero-decimal CFA franc zones) and
+        <strong>standards-aware</strong> (EMVCo QR, ISO 20022, the GSMA Mobile
+        Money API, PAPSS). It is <strong>not</strong> a bank. It ships the
+        root-of-trust types and the trait seams; the community builds the rails.
       </p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">View on GitHub</a>
-        <a class="btn btn-ghost" href="#roadmap">See what's open &darr;</a>
+        <a class="btn btn-ghost" href="roadmap.html">See what's open &nearr;</a>
       </div>
       <div class="badges">
         <img src="https://github.com/andrewSarr/raio/actions/workflows/ci.yml/badge.svg" alt="CI status" loading="lazy">
         <img src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg" alt="License: MIT OR Apache-2.0" loading="lazy">
         <img src="https://img.shields.io/badge/rust-1.85%2B-orange.svg" alt="Rust 1.85+" loading="lazy">
+        <img src="https://img.shields.io/badge/crates-core%20%7C%20ledger%20%7C%20dict%20%7C%20brcode%20%7C%20qr-9cf" alt="Crates: core, ledger, dict, brcode, qr" loading="lazy">
       </div>
     </div>
 
-    <figure class="hero-visual reveal">
-      <img src="assets/img/raio-promo.gif" width="1600" height="900" alt="raio resolving an email alias to a bank, settling a double-entry balance, and emitting a BR Code — end to end, from a single cargo run" loading="eager">
-      <figcaption>45s overview &mdash; alias resolution &rarr; settlement &rarr; BR Code &middot; <a href="assets/img/raio-promo.mp4" style="color:inherit">full-quality video</a></figcaption>
+    <figure class="hero-phone reveal">
+      <video autoplay muted loop playsinline preload="auto" poster="assets/img/phone-hero.jpg"
+             width="520" height="900"
+             aria-label="raio resolving an email alias, settling a double-entry balance, and emitting a QR Code — on a phone">
+        <source src="assets/img/phone-hero.mp4" type="video/mp4">
+        <img src="assets/img/phone-hero.jpg" width="520" height="900" alt="raio phone demo: alias resolution, settlement, QR Code">
+      </video>
+      <figcaption>alias resolution &rarr; settlement &rarr; QR Code, on a phone &middot; <a href="assets/img/raio-promo.mp4" style="color:inherit">full 45s overview</a></figcaption>
     </figure>
   </div>
 </header>
@@ -97,11 +106,11 @@
       <div class="is">
         <h3>Is</h3>
         <ul>
-          <li><span class="mark">&check;</span>a Money type with checked integer arithmetic</li>
+          <li><span class="mark">&check;</span>a <strong>currency-aware</strong> Money type (African currencies, incl. zero-decimal) with checked integer arithmetic</li>
           <li><span class="mark">&check;</span>an append-only, double-entry ledger <em>model</em></li>
           <li><span class="mark">&check;</span>a <code>SettlementProvider</code> <em>trait</em> + a naive example</li>
-          <li><span class="mark">&check;</span>a BR Code codec (EMV TLV + CRC16-CCITT), pure and fuzzable</li>
-          <li><span class="mark">&check;</span>a foundation designed for community extension</li>
+          <li><span class="mark">&check;</span>Pix BR Code <em>and</em> EMVCo QR codecs (EMV TLV + CRC16-CCITT), pure and fuzzable</li>
+          <li><span class="mark">&check;</span>a foundation designed for African rails &amp; interoperability, community-extended</li>
         </ul>
       </div>
       <div class="isnt">
@@ -118,165 +127,19 @@
   </div>
 </section>
 
-<section id="crates">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="n">03</span><span class="rule"></span>Crate map</span>
-      <h2>Seven crates, one root of trust.</h2>
-      <p>Each crate compiles and is published independently — depend on just
-      <code>raio-core</code> for the types, or pull in the ledger, directory,
-      and codec as needed.</p>
-    </div>
-    <div class="crate-diagram reveal">
-      <div class="crate-grid">
-        <div class="crate-card">
-          <div class="name">raio-core</div>
-          <div class="desc">IO-free root of trust: Money, ids, keys, TxState, the SettlementProvider trait.</div>
-        </div>
-        <div class="crate-card">
-          <div class="name">raio-dict</div>
-          <div class="desc">Key directory (alias &rarr; account) + the KeyDirectory trait.</div>
-        </div>
-        <div class="crate-card">
-          <div class="name">raio-ledger</div>
-          <div class="desc">Double-entry, append-only, event-sourced ledger + the LedgerStore trait.</div>
-        </div>
-        <div class="crate-card">
-          <div class="name">raio-brcode</div>
-          <div class="desc">BR Code codec (EMV TLV + CRC16-CCITT), pure and fuzzable.</div>
-        </div>
-      </div>
-
-      <div class="crate-subhead">Shipped backends &mdash; the trait seams, proven out</div>
-      <div class="crate-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="crate-card shipped">
-          <div class="name">raio-ledger-redb</div>
-          <div class="desc">Durable <code>LedgerStore</code> on pure-Rust <code>redb</code> &mdash; no C toolchain. The first real backend.</div>
-        </div>
-        <div class="crate-card shipped">
-          <div class="name">raio-dict-redb</div>
-          <div class="desc">Durable <code>KeyDirectory</code> on pure-Rust <code>redb</code> &mdash; no C toolchain. The DICT backend.</div>
-        </div>
-      </div>
-
-      <div class="crate-grid" style="grid-template-columns: 1fr; margin-top: 18px;">
-        <div class="crate-card examples">
-          <div class="name">raio-examples</div>
-          <div class="desc">Not published &mdash; NaiveSettlement + the settlement_demo used in the video above.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="architecture" class="alt">
-  <div class="wrap rule-block">
-    <div class="reveal">
-      <span class="eyebrow"><span class="n">04</span><span class="rule"></span>Design</span>
-      <p class="rule-quote">"<span class="rust">raio-core</span> stays IO-free." That's the one rule.</p>
-      <p style="color: var(--ink-sub); font-size: 15.5px; margin-top: 16px;">
-        If a change would make <code>core</code> depend on a network, a filesystem,
-        a clock, or a runtime, it belongs in a different crate. The trait seams
-        exist so you can add real capabilities without ever touching the root
-        of trust.
-      </p>
-    </div>
-    <div class="rule-seams reveal">
-      <div class="seam">
-        <code>LedgerStore</code>
-        <p>Persist the event-sourced ledger — durable today via pure-Rust redb; SQL/Postgres are welcome community crates.</p>
-      </div>
-      <div class="seam">
-        <code>KeyDirectory</code>
-        <p>Resolve an alias to an account &mdash; durable today via pure-Rust redb; SQL/Postgres are welcome community crates.</p>
-      </div>
-      <div class="seam">
-        <code>SettlementProvider</code>
-        <p>Move real money. The shipped impl is naive on purpose — production adapters are BYO.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="roadmap">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="n">05</span><span class="rule"></span>Get involved</span>
-      <h2>The foundation is done. The rails are yours.</h2>
-      <p>raio ships the foundation; the layers above it are community-owned.
-      These are the highest-value next steps — pick one, open an issue with the
-      <strong>"Implement a missing crate"</strong> template, and claim it.</p>
-    </div>
-
-    <div class="roadmap-list reveal">
-      <div class="roadmap-item">
-        <span class="milestone">M1</span>
-        <div>
-          <div class="title">A durable LedgerStore</div>
-          <div class="sub">Shipped: raio-ledger-redb (pure-Rust). SQL/Postgres on the same seam are open.</div>
-        </div>
-        <span class="pill shipped">Shipped</span>
-      </div>
-      <div class="roadmap-item">
-        <span class="milestone">M2</span>
-        <div>
-          <div class="title">A durable KeyDirectory</div>
-          <div class="sub">Shipped: raio-dict-redb (pure-Rust). SQL/Postgres on the same seam are open.</div>
-        </div>
-        <span class="pill shipped">Shipped</span>
-      </div>
-      <div class="roadmap-item">
-        <span class="milestone">M3</span>
-        <div>
-          <div class="title">A Transport trait + exactly-once delivery</div>
-          <div class="sub">The messaging seam between participants.</div>
-        </div>
-        <span class="pill wanted">Help wanted</span>
-      </div>
-      <div class="roadmap-item">
-        <span class="milestone">M4</span>
-        <div>
-          <div class="title">raio-rail</div>
-          <div class="sub">The HTTP clearing-house + participant nodes.</div>
-        </div>
-        <span class="pill good-first">Good first crate</span>
-      </div>
-      <div class="roadmap-item">
-        <span class="milestone">M5</span>
-        <div>
-          <div class="title">A production SettlementProvider adapter</div>
-          <div class="sub">Replace the naive example with something real.</div>
-        </div>
-        <span class="pill wanted">Help wanted</span>
-      </div>
-      <div class="roadmap-item">
-        <span class="milestone">M6</span>
-        <div>
-          <div class="title">SDK + operator CLI</div>
-          <div class="sub">The developer experience on top of the rails.</div>
-        </div>
-        <span class="pill wanted">Help wanted</span>
-      </div>
-    </div>
-
-    <div class="roadmap-cta reveal">
-      <a class="btn btn-primary" href="https://github.com/andrewSarr/raio/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Read CONTRIBUTING.md</a>
-      <a class="btn btn-ghost" href="https://github.com/andrewSarr/raio/blob/main/docs/src/roadmap.md" target="_blank" rel="noopener">Full roadmap &nearr;</a>
-      <a class="btn btn-ghost" href="https://github.com/andrewSarr/raio/issues/new/choose" target="_blank" rel="noopener">Open an issue &nearr;</a>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap footer-grid">
     <div>
-      <a href="#" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+      <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
       <p class="footer-note">
-        Dual-licensed under MIT OR Apache-2.0. Not affiliated with Pix or the
-        Banco Central do Brasil.
+        Dual-licensed under MIT OR Apache-2.0. Built for African rails and
+        interoperability. Not affiliated with Pix or the Banco Central do Brasil.
       </p>
     </div>
     <nav class="footer-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Roadmap</a>
       <a href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub</a>
       <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
       <a href="https://github.com/andrewSarr/raio/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>

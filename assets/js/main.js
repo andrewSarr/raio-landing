@@ -3,19 +3,51 @@
 (function () {
   "use strict";
 
-  // Mobile nav toggle
+  // Mobile nav — off-canvas panel sliding in from the right.
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
+  var backdrop = document.querySelector("[data-nav-backdrop]");
+
+  function setNav(open) {
+    if (!toggle || !links) return;
+    links.classList.toggle("open", open);
+    toggle.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    if (backdrop) {
+      backdrop.classList.toggle("open", open);
+      if (open) {
+        backdrop.removeAttribute("hidden");
+      } else {
+        backdrop.setAttribute("hidden", "");
+      }
+    }
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+
   if (toggle && links) {
     toggle.addEventListener("click", function () {
-      var open = links.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      setNav(!links.classList.contains("open"));
     });
     links.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function () {
-        links.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
+        setNav(false);
       });
+    });
+    if (backdrop) {
+      backdrop.addEventListener("click", function () {
+        setNav(false);
+      });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && links.classList.contains("open")) {
+        setNav(false);
+      }
+    });
+    // Reset if the viewport grows back past the mobile breakpoint.
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 640 && links.classList.contains("open")) {
+        setNav(false);
+      }
     });
   }
 

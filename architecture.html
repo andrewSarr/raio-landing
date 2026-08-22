@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture — raio</title>
+<meta name="description" content="raio's one rule: raio-core stays IO-free. Every IO-shaped concern — ledger persistence, key resolution, settlement, transport — is a trait seam the community extends without touching the root of trust.">
+<link rel="canonical" href="https://andrewsarr.github.io/raio-landing/architecture.html">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html" aria-current="page">Architecture</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub &nearr;</a>
+    </div>
+  </div>
+</nav>
+<div class="nav-backdrop" data-nav-backdrop hidden></div>
+
+<main>
+<section id="architecture" class="alt">
+  <div class="wrap rule-block">
+    <div class="reveal">
+      <span class="eyebrow"><span class="n">04</span><span class="rule"></span>Design</span>
+      <p class="rule-quote">"<span class="rust">raio-core</span> stays IO-free." That's the one rule.</p>
+      <p style="color: var(--ink-sub); font-size: 15.5px; margin-top: 16px;">
+        If a change would make <code>core</code> depend on a network, a filesystem,
+        a clock, or a runtime, it belongs in a different crate. The trait seams
+        exist so you can add real capabilities — durable storage, transport,
+        settlement, scheme-specific QR profiles — without ever touching the root
+        of trust. <code>core</code> has no network, no filesystem, and no clock,
+        so it stays deterministic, runtime-agnostic, and trivially fuzzable.
+      </p>
+    </div>
+    <div class="rule-seams reveal">
+      <div class="seam">
+        <code>LedgerStore</code>
+        <p>Persist the event-sourced ledger — durable today via pure-Rust redb; SQL/Postgres are welcome community crates.</p>
+      </div>
+      <div class="seam">
+        <code>KeyDirectory</code>
+        <p>Resolve an alias (or MSISDN) to an account &mdash; durable today via pure-Rust redb; SQL/Postgres are welcome community crates.</p>
+      </div>
+      <div class="seam">
+        <code>SettlementProvider</code>
+        <p>Move real money. The shipped impl is naive on purpose — production adapters (PAPSS / RTGS / mobile money) are BYO.</p>
+      </div>
+      <div class="seam">
+        <code>Transport</code> <span class="pill wanted" style="margin-left:4px;">Future</span>
+        <p>The inter-participant message bus, with ISO 20022 and GSMA Mobile Money adapters — the interoperability seam, not yet in v0.1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="n">&middot;</span><span class="rule"></span>Codecs &amp; currency</span>
+      <h2>Two QR standards, one currency-aware root.</h2>
+      <p>Pix taught "scan to pay" with the BR Code; the interoperable sibling is
+      EMVCo QR. Both are EMV-style TLV with the same CRC-16/CCITT-FALSE checksum,
+      shipped as separate, self-contained codecs (no <code>raio-core</code>
+      dependency). Meanwhile <code>Money</code> carries integer minor units and
+      respects each currency's <code>minor_scale()</code> — the zero-decimal
+      CFA franc zones (XOF, XAF, UGX, RWF, GNF) are first-class, never forced
+      through a cents projection.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+      <p class="footer-note">
+        Dual-licensed under MIT OR Apache-2.0. Built for African rails and
+        interoperability. Not affiliated with Pix or the Banco Central do Brasil.
+      </p>
+    </div>
+    <nav class="footer-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/LICENSE-MIT" target="_blank" rel="noopener">License</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

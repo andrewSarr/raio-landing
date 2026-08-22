@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crates — raio</title>
+<meta name="description" content="raio is eight standalone crates behind one IO-free root of trust: raio-core, the Pix BR Code and EMVCo QR codecs, an event-sourced ledger, a key directory, durable redb backends, and examples.">
+<link rel="canonical" href="https://andrewsarr.github.io/raio-landing/crates.html">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="crates.html" aria-current="page">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub &nearr;</a>
+    </div>
+  </div>
+</nav>
+<div class="nav-backdrop" data-nav-backdrop hidden></div>
+
+<main>
+<section id="crates">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="n">03</span><span class="rule"></span>Crate map</span>
+      <h2>Eight crates, one root of trust.</h2>
+      <p>Each crate compiles and is published independently — depend on just
+      <code>raio-core</code> for the types, or pull in the ledger, directory,
+      and codecs as needed. The QR codecs are standalone (no <code>raio-core</code>
+      dependency); a QR's currency is an ISO 4217 numeric string, mapped to
+      <code>Money</code> by higher layers.</p>
+    </div>
+
+    <div class="crate-diagram reveal">
+      <div class="crate-subhead">Root of trust</div>
+      <div class="crate-grid" style="grid-template-columns: 1fr;">
+        <div class="crate-card">
+          <div class="name">raio-core</div>
+          <div class="desc">IO-free root of trust: a currency-aware <code>Money</code> (the major African currencies, incl. zero-decimal CFA franc zones), typed ids, keys, TxState, the <code>SettlementProvider</code> trait.</div>
+        </div>
+      </div>
+
+      <div class="crate-subhead">QR codecs — pure and fuzzable</div>
+      <div class="crate-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="crate-card">
+          <div class="name">raio-brcode</div>
+          <div class="desc">Pix BR Code codec (EMV TLV + CRC16-CCITT). The learning reference — "copia e cola".</div>
+        </div>
+        <div class="crate-card">
+          <div class="name">raio-qr</div>
+          <div class="desc">EMVCo QR codec (Merchant-Presented Mode + CRC16-CCITT). The <strong>interoperable</strong> QR — the global standard M-Pesa, MTN MoMo, Orange Money, G-Money &amp; NIBSS use.</div>
+        </div>
+      </div>
+
+      <div class="crate-subhead">Trait seams + in-memory reference impls</div>
+      <div class="crate-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="crate-card">
+          <div class="name">raio-ledger</div>
+          <div class="desc">Double-entry, append-only, event-sourced ledger + the <code>LedgerStore</code> trait.</div>
+        </div>
+        <div class="crate-card">
+          <div class="name">raio-dict</div>
+          <div class="desc">Key directory (alias &rarr; account) + the <code>KeyDirectory</code> trait.</div>
+        </div>
+      </div>
+
+      <div class="crate-subhead">Shipped durable backends &mdash; the seams, proven out</div>
+      <div class="crate-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="crate-card shipped">
+          <div class="name">raio-ledger-redb</div>
+          <div class="desc">Durable <code>LedgerStore</code> on pure-Rust <code>redb</code> &mdash; no C toolchain. The first real backend.</div>
+        </div>
+        <div class="crate-card shipped">
+          <div class="name">raio-dict-redb</div>
+          <div class="desc">Durable <code>KeyDirectory</code> on pure-Rust <code>redb</code> &mdash; no C toolchain. The DICT backend.</div>
+        </div>
+      </div>
+
+      <div class="crate-grid" style="grid-template-columns: 1fr; margin-top: 18px;">
+        <div class="crate-card examples">
+          <div class="name">raio-examples</div>
+          <div class="desc">Not published &mdash; <code>NaiveSettlement</code> + the <code>settlement_demo</code> used in the video on the home page.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+      <p class="footer-note">
+        Dual-licensed under MIT OR Apache-2.0. Built for African rails and
+        interoperability. Not affiliated with Pix or the Banco Central do Brasil.
+      </p>
+    </div>
+    <nav class="footer-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/LICENSE-MIT" target="_blank" rel="noopener">License</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
