@@ -33,7 +33,7 @@
 <section id="crates">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow"><span class="n">03</span><span class="rule"></span>Crate map</span>
+      <span class="eyebrow"><span class="rule"></span>Crate map</span>
       <h2>Eight crates, one root of trust.</h2>
       <p>Each crate compiles and is published independently — depend on just
       <code>raio-core</code> for the types, or pull in the ledger, directory,
@@ -44,7 +44,7 @@
 
     <div class="crate-diagram reveal">
       <div class="crate-subhead">Root of trust</div>
-      <div class="crate-grid" style="grid-template-columns: 1fr;">
+      <div class="crate-grid cols-1">
         <div class="crate-card">
           <div class="name">raio-core</div>
           <div class="desc">IO-free root of trust: a currency-aware <code>Money</code> (the major African currencies, incl. zero-decimal CFA franc zones), typed ids, keys, TxState, the <code>SettlementProvider</code> trait.</div>
@@ -52,7 +52,7 @@
       </div>
 
       <div class="crate-subhead">QR codecs — pure and fuzzable</div>
-      <div class="crate-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="crate-grid cols-2">
         <div class="crate-card">
           <div class="name">raio-brcode</div>
           <div class="desc">Pix BR Code codec (EMV TLV + CRC16-CCITT). The learning reference — "copia e cola".</div>
@@ -64,7 +64,7 @@
       </div>
 
       <div class="crate-subhead">Trait seams + in-memory reference impls</div>
-      <div class="crate-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="crate-grid cols-2">
         <div class="crate-card">
           <div class="name">raio-ledger</div>
           <div class="desc">Double-entry, append-only, event-sourced ledger + the <code>LedgerStore</code> trait.</div>
@@ -76,7 +76,7 @@
       </div>
 
       <div class="crate-subhead">Shipped durable backends &mdash; the seams, proven out</div>
-      <div class="crate-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="crate-grid cols-2">
         <div class="crate-card shipped">
           <div class="name">raio-ledger-redb</div>
           <div class="desc">Durable <code>LedgerStore</code> on pure-Rust <code>redb</code> &mdash; no C toolchain. The first real backend.</div>
@@ -87,7 +87,7 @@
         </div>
       </div>
 
-      <div class="crate-grid" style="grid-template-columns: 1fr; margin-top: 18px;">
+      <div class="crate-grid cols-1" style="margin-top: 18px;">
         <div class="crate-card examples">
           <div class="name">raio-examples</div>
           <div class="desc">Not published &mdash; <code>NaiveSettlement</code> + the <code>settlement_demo</code> used in the video on the home page.</div>
