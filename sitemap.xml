@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/index.html"/>
+  </url>
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/fr/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/index.html"/>
+  </url>
+
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/crates.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/crates.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/crates.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/crates.html"/>
+  </url>
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/fr/crates.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/crates.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/crates.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/crates.html"/>
+  </url>
+
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/architecture.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/architecture.html"/>
+  </url>
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/fr/architecture.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/architecture.html"/>
+  </url>
+
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/roadmap.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/roadmap.html"/>
+  </url>
+  <url>
+    <loc>https://andrewsarr.github.io/raio-landing/fr/roadmap.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/roadmap.html"/>
+  </url>
+
+</urlset>

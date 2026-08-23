@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture — raio</title>
+<meta name="description" content="La règle unique de raio : raio-core reste sans IO. Chaque préoccupation de type IO — persistance du grand livre, résolution de clé, règlement, transport — est un point d'extension que la communauté étend sans toucher à la couche de confiance.">
+<link rel="canonical" href="https://andrewsarr.github.io/raio-landing/fr/architecture.html">
+<link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/architecture.html">
+<link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/architecture.html">
+<link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/architecture.html">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+    <button class="nav-toggle" aria-label="Ouvrir la navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html" aria-current="page">Architecture</a>
+      <a href="roadmap.html">Feuille de route</a>
+      <a href="https://raio-journal.vercel.app" target="_blank" rel="noopener">Journal</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="../architecture.html" class="lang-switch" hreflang="en">EN</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub &nearr;</a>
+    </div>
+  </div>
+</nav>
+<div class="nav-backdrop" data-nav-backdrop hidden></div>
+
+<main>
+<section id="architecture" class="alt">
+  <div class="wrap rule-block">
+    <div class="reveal">
+      <span class="eyebrow"><span class="rule"></span>Conception</span>
+      <p class="rule-quote">« <span class="rust">raio-core</span> reste sans IO. » C'est la règle unique.</p>
+      <p style="color: var(--ink-sub); font-size: 15.5px; margin-top: 16px;">
+        Si un changement obligeait <code>core</code> à dépendre d'un réseau,
+        d'un système de fichiers, d'une horloge ou d'un runtime, il n'a pas sa
+        place là — mais dans une autre crate. Les points d'extension existent
+        pour ajouter de vraies capacités — stockage durable, transport,
+        règlement, profils QR spécifiques — sans jamais toucher à la couche
+        de confiance. <code>core</code> n'a ni réseau, ni système de
+        fichiers, ni horloge : elle reste déterministe, indépendante du
+        runtime, et trivialement fuzzable.
+      </p>
+    </div>
+    <div class="rule-seams reveal">
+      <div class="seam">
+        <code>LedgerStore</code>
+        <p>Persiste le grand livre event-sourced — durable dès aujourd'hui via <code>redb</code>, pur Rust ; des crates communautaires SQL/Postgres sont bienvenues.</p>
+      </div>
+      <div class="seam">
+        <code>KeyDirectory</code>
+        <p>Résout un alias (ou un MSISDN) vers un compte &mdash; durable dès aujourd'hui via <code>redb</code>, pur Rust ; des crates communautaires SQL/Postgres sont bienvenues.</p>
+      </div>
+      <div class="seam">
+        <code>SettlementProvider</code>
+        <p>Déplace de l'argent réel. L'implémentation livrée est naïve, volontairement — les adaptateurs de production (PAPSS / RTGS / mobile money) sont à apporter.</p>
+      </div>
+      <div class="seam">
+        <code>Transport</code> <span class="pill wanted" style="margin-left:4px;">À venir</span>
+        <p>Le bus de messages entre participants, avec des adaptateurs ISO 20022 et GSMA Mobile Money — le point d'extension de l'interopérabilité, pas encore dans la v0.1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="rule"></span>Codecs et devises</span>
+      <h2>Deux standards QR, une seule racine multi-devises.</h2>
+      <p>Pix a popularisé le « scan to pay » avec le BR Code ; l'équivalent
+      interopérable est l'EMVCo QR. Les deux sont des TLV de style EMV avec
+      la même somme de contrôle CRC-16/CCITT-FALSE, livrés comme des codecs
+      séparés et autonomes (aucune dépendance à <code>raio-core</code>).
+      Pendant ce temps, <code>Money</code> transporte des unités mineures
+      entières et respecte le <code>minor_scale()</code> de chaque devise —
+      les zones franc CFA sans décimales (XOF, XAF, UGX, RWF, GNF) sont
+      traitées nativement, jamais forcées à travers une projection en
+      centimes.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+      <p class="footer-note">
+        Double licence MIT OR Apache-2.0. Conçu pour les rails africains et
+        l'interopérabilité. Non affilié à Pix ni à la Banco Central do Brasil.
+      </p>
+    </div>
+    <nav class="footer-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Feuille de route</a>
+      <a href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://raio-journal.vercel.app" target="_blank" rel="noopener">Journal</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/SECURITY.md" target="_blank" rel="noopener">Sécurité</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code de conduite</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/LICENSE-MIT" target="_blank" rel="noopener">Licence</a>
+      <a href="../architecture.html" class="lang-switch" hreflang="en">EN</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

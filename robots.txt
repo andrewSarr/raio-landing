@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://andrewsarr.github.io/raio-landing/sitemap.xml

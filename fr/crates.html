@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crates — raio</title>
+<meta name="description" content="raio, ce sont huit crates indépendantes derrière une seule couche de confiance sans IO : raio-core, les codecs Pix BR Code et EMVCo QR, un grand livre event-sourced, un annuaire de clés, des backends redb durables, et des exemples.">
+<link rel="canonical" href="https://andrewsarr.github.io/raio-landing/fr/crates.html">
+<link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/crates.html">
+<link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/crates.html">
+<link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/crates.html">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+    <button class="nav-toggle" aria-label="Ouvrir la navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="crates.html" aria-current="page">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Feuille de route</a>
+      <a href="https://raio-journal.vercel.app" target="_blank" rel="noopener">Journal</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="../crates.html" class="lang-switch" hreflang="en">EN</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub &nearr;</a>
+    </div>
+  </div>
+</nav>
+<div class="nav-backdrop" data-nav-backdrop hidden></div>
+
+<main>
+<section id="crates">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="rule"></span>Carte des crates</span>
+      <h2>Huit crates, une seule couche de confiance.</h2>
+      <p>Chaque crate se compile et se publie indépendamment — ne dépendez
+      que de <code>raio-core</code> pour les types, ou intégrez le grand
+      livre, l'annuaire et les codecs selon vos besoins. Les codecs QR sont
+      autonomes (aucune dépendance à <code>raio-core</code>) ; la devise d'un
+      QR est une chaîne numérique ISO 4217, mappée vers <code>Money</code>
+      par les couches supérieures.</p>
+    </div>
+
+    <div class="crate-diagram reveal">
+      <div class="crate-subhead">Couche de confiance</div>
+      <div class="crate-grid cols-1">
+        <div class="crate-card">
+          <div class="name">raio-core</div>
+          <div class="desc">Couche de confiance sans IO : un <code>Money</code> multi-devises (les principales devises africaines, y compris les zones franc CFA sans décimales), des identifiants typés, des clés, TxState, le trait <code>SettlementProvider</code>.</div>
+        </div>
+      </div>
+
+      <div class="crate-subhead">Codecs QR — purs et fuzzables</div>
+      <div class="crate-grid cols-2">
+        <div class="crate-card">
+          <div class="name">raio-brcode</div>
+          <div class="desc">Codec Pix BR Code (EMV TLV + CRC16-CCITT). La référence d'apprentissage — "copia e cola".</div>
+        </div>
+        <div class="crate-card">
+          <div class="name">raio-qr</div>
+          <div class="desc">Codec EMVCo QR (Merchant-Presented Mode + CRC16-CCITT). Le QR <strong>interopérable</strong> — le standard mondial utilisé par M-Pesa, MTN MoMo, Orange Money, G-Money et NIBSS.</div>
+        </div>
+      </div>
+
+      <div class="crate-subhead">Points d'extension + implémentations de référence en mémoire</div>
+      <div class="crate-grid cols-2">
+        <div class="crate-card">
+          <div class="name">raio-ledger</div>
+          <div class="desc">Grand livre à double entrée, en ajout seul, event-sourced + le trait <code>LedgerStore</code>.</div>
+        </div>
+        <div class="crate-card">
+          <div class="name">raio-dict</div>
+          <div class="desc">Annuaire de clés (alias &rarr; compte) + le trait <code>KeyDirectory</code>.</div>
+        </div>
+      </div>
+
+      <div class="crate-subhead">Backends durables livrés &mdash; les points d'extension, mis à l'épreuve</div>
+      <div class="crate-grid cols-2">
+        <div class="crate-card shipped">
+          <div class="name">raio-ledger-redb</div>
+          <div class="desc"><code>LedgerStore</code> durable sur <code>redb</code>, pur Rust &mdash; sans chaîne d'outils C. Le premier vrai backend.</div>
+        </div>
+        <div class="crate-card shipped">
+          <div class="name">raio-dict-redb</div>
+          <div class="desc"><code>KeyDirectory</code> durable sur <code>redb</code>, pur Rust &mdash; sans chaîne d'outils C. Le backend du DICT.</div>
+        </div>
+      </div>
+
+      <div class="crate-grid cols-1" style="margin-top: 18px;">
+        <div class="crate-card examples">
+          <div class="name">raio-examples</div>
+          <div class="desc">Non publiée &mdash; <code>NaiveSettlement</code> + le <code>settlement_demo</code> utilisé dans la vidéo de la page d'accueil.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+      <p class="footer-note">
+        Double licence MIT OR Apache-2.0. Conçu pour les rails africains et
+        l'interopérabilité. Non affilié à Pix ni à la Banco Central do Brasil.
+      </p>
+    </div>
+    <nav class="footer-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Feuille de route</a>
+      <a href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://raio-journal.vercel.app" target="_blank" rel="noopener">Journal</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/SECURITY.md" target="_blank" rel="noopener">Sécurité</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code de conduite</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/LICENSE-MIT" target="_blank" rel="noopener">Licence</a>
+      <a href="../crates.html" class="lang-switch" hreflang="en">EN</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

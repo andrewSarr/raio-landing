@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>raio — une fondation de paiement instantané inspirée de Pix, pour les rails africains</title>
+<meta name="description" content="raio est une fondation de paiement instantané open source en Rust, sans IO, conçue pour les rails africains et l'interopérabilité : résolution d'alias, grand livre à double entrée event-sourced, et codecs QR EMVCo/Pix — la couche de confiance sur laquelle construire. Ce n'est pas une banque.">
+<link rel="canonical" href="https://andrewsarr.github.io/raio-landing/fr/index.html">
+<link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/index.html">
+<link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/index.html">
+<link rel="alternate" hreflang="x-default" href="https://andrewsarr.github.io/raio-landing/index.html">
+
+<!-- Open Graph / Twitter card -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="raio">
+<meta property="og:title" content="raio — une fondation de paiement instantané inspirée de Pix, pour les rails africains">
+<meta property="og:description" content="Couche de confiance sans IO, grand livre à double entrée event-sourced, et codecs QR Pix + EMVCo, livrés en crates indépendantes. Multi-devises et interopérable. Pas une banque — la fondation sur laquelle construire.">
+<meta property="og:image" content="https://andrewsarr.github.io/raio-landing/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://andrewsarr.github.io/raio-landing/fr/index.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="raio — une fondation de paiement instantané inspirée de Pix, pour les rails africains">
+<meta name="twitter:description" content="Couche de confiance sans IO, grand livre à double entrée event-sourced, et codecs QR Pix + EMVCo, livrés en crates indépendantes.">
+<meta name="twitter:image" content="https://andrewsarr.github.io/raio-landing/assets/img/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+    <button class="nav-toggle" aria-label="Ouvrir la navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="crates.html" aria-current="page">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Feuille de route</a>
+      <a href="https://raio-journal.vercel.app" target="_blank" rel="noopener">Journal</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="../index.html" class="lang-switch" hreflang="en">EN</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub &nearr;</a>
+    </div>
+  </div>
+</nav>
+<div class="nav-backdrop" data-nav-backdrop hidden></div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="rule"></span>Open source &middot; Rust &middot; conçu pour les rails africains</span>
+      <h1>Une fondation de paiement instantané, construite en <span class="accent">open source</span> — pour les rails africains et l'interopérabilité.</h1>
+      <p class="lead">
+        raio s'inspire du Pix brésilien — résolution d'alias vers une clé de
+        paiement, virement instantané 24/7, QR "copia e cola" — et en fait une
+        fondation correcte et fédérable. Elle est <strong>multi-devises</strong>
+        (les principales devises africaines, y compris les zones franc CFA sans
+        décimales) et <strong>compatible avec les standards</strong> (QR EMVCo,
+        ISO 20022, l'API GSMA Mobile Money, PAPSS). Ce n'est <strong>pas</strong>
+        une banque. Elle fournit les types de confiance et les points
+        d'extension ; la communauté construit les rails.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">Voir sur GitHub</a>
+        <a class="btn btn-ghost" href="roadmap.html">Voir ce qui reste à faire &nearr;</a>
+      </div>
+      <div class="badges">
+        <img src="https://github.com/andrewSarr/raio/actions/workflows/ci.yml/badge.svg" alt="Statut CI" loading="lazy">
+        <img src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg" alt="Licence : MIT OR Apache-2.0" loading="lazy">
+        <img src="https://img.shields.io/badge/rust-1.85%2B-orange.svg" alt="Rust 1.85+" loading="lazy">
+        <img src="https://img.shields.io/badge/crates-core%20%7C%20ledger%20%7C%20dict%20%7C%20brcode%20%7C%20qr-9cf" alt="Crates : core, ledger, dict, brcode, qr" loading="lazy">
+      </div>
+    </div>
+
+    <figure class="hero-phone reveal">
+      <video autoplay muted loop playsinline preload="auto" poster="../assets/img/phone-hero.jpg"
+             width="520" height="900"
+             aria-label="raio résolvant un alias par e-mail, réglant un solde à double entrée, et émettant un QR Code — sur un téléphone">
+        <source src="../assets/img/phone-hero.mp4" type="video/mp4">
+        <img src="../assets/img/phone-hero.jpg" width="520" height="900" alt="Démo raio sur téléphone : résolution d'alias, règlement, QR Code">
+      </video>
+      <figcaption>résolution d'alias &rarr; règlement &rarr; QR Code, sur téléphone &middot; <a href="../assets/img/raio-promo.mp4" style="color:inherit">vidéo complète (45s)</a></figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="quickstart">
+  <div class="wrap">
+    <div class="codebox" id="quickstart-code">
+      <button class="copy-btn" data-copy="#quickstart-code">Copier</button>
+      <div><span class="muted">$</span> git clone https://github.com/andrewSarr/raio</div>
+      <div><span class="muted">$</span> cd raio</div>
+      <div><span class="muted">$</span> cargo test --workspace</div>
+      <div><span class="muted">$</span> cargo run --example settlement_demo <span class="muted">&nbsp;# résout un alias, règle R$25, imprime un BR Code</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="compare" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="rule"></span>Périmètre</span>
+      <h2>Ce que raio est — et n'est pas.</h2>
+      <p>Une fondation, délibérément restreinte. Tout ce qui est à droite est
+      intentionnellement laissé aux déploiements et à la communauté.</p>
+    </div>
+    <div class="compare reveal">
+      <div class="is">
+        <h3>Est</h3>
+        <ul>
+          <li><span class="mark">&check;</span>un type Money <strong>multi-devises</strong> (devises africaines, y compris sans décimales) en arithmétique entière vérifiée</li>
+          <li><span class="mark">&check;</span>un <em>modèle</em> de grand livre à double entrée, en ajout seul</li>
+          <li><span class="mark">&check;</span>un <em>trait</em> <code>SettlementProvider</code> + un exemple naïf</li>
+          <li><span class="mark">&check;</span>les codecs Pix BR Code <em>et</em> EMVCo QR (EMV TLV + CRC16-CCITT), purs et fuzzables</li>
+          <li><span class="mark">&check;</span>une fondation pensée pour les rails africains et l'interopérabilité, extensible par la communauté</li>
+        </ul>
+      </div>
+      <div class="isnt">
+        <h3>N'est pas</h3>
+        <ul>
+          <li><span class="mark">&times;</span>une lib monétaire basée sur les flottants</li>
+          <li><span class="mark">&times;</span>un service de grand livre hébergé</li>
+          <li><span class="mark">&times;</span>une banque centrale ou un dépositaire</li>
+          <li><span class="mark">&times;</span>une application de portefeuille</li>
+          <li><span class="mark">&times;</span>un produit de paiement clé en main</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
+      <p class="footer-note">
+        Double licence MIT OR Apache-2.0. Conçu pour les rails africains et
+        l'interopérabilité. Non affilié à Pix ni à la Banco Central do Brasil.
+      </p>
+    </div>
+    <nav class="footer-links">
+      <a href="crates.html">Crates</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="roadmap.html">Feuille de route</a>
+      <a href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://raio-journal.vercel.app" target="_blank" rel="noopener">Journal</a>
+      <a href="https://github.com/andrewSarr/raio/tree/main/docs/src" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/SECURITY.md" target="_blank" rel="noopener">Sécurité</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code de conduite</a>
+      <a href="https://github.com/andrewSarr/raio/blob/main/LICENSE-MIT" target="_blank" rel="noopener">Licence</a>
+      <a href="../index.html" class="lang-switch" hreflang="en">EN</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
