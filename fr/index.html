@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>raio — une fondation de paiement instantané inspirée de Pix, pour les rails africains</title>
-<meta name="description" content="raio est une fondation de paiement instantané open source en Rust, sans IO, conçue pour les rails africains et l'interopérabilité : résolution d'alias, grand livre à double entrée event-sourced, et codecs QR EMVCo/Pix — la couche de confiance sur laquelle construire. Ce n'est pas une banque.">
+<title>raio — une fondation de paiement instantané inspirée de Pix, conçue pour l'interopérabilité</title>
+<meta name="description" content="raio est une fondation de paiement instantané open source en Rust, sans IO, conçue pour l'interopérabilité entre fournisseurs, devises et frontières : résolution d'alias, grand livre à double entrée event-sourced, et codecs QR EMVCo/Pix — la couche de confiance sur laquelle construire. Ce n'est pas une banque.">
 <link rel="canonical" href="https://andrewsarr.github.io/raio-landing/fr/index.html">
 <link rel="alternate" hreflang="en" href="https://andrewsarr.github.io/raio-landing/index.html">
 <link rel="alternate" hreflang="fr" href="https://andrewsarr.github.io/raio-landing/fr/index.html">
@@ -13,14 +13,14 @@
 <!-- Open Graph / Twitter card -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="raio">
-<meta property="og:title" content="raio — une fondation de paiement instantané inspirée de Pix, pour les rails africains">
+<meta property="og:title" content="raio — une fondation de paiement instantané inspirée de Pix, conçue pour l'interopérabilité">
 <meta property="og:description" content="Couche de confiance sans IO, grand livre à double entrée event-sourced, et codecs QR Pix + EMVCo, livrés en crates indépendantes. Multi-devises et interopérable. Pas une banque — la fondation sur laquelle construire.">
 <meta property="og:image" content="https://andrewsarr.github.io/raio-landing/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://andrewsarr.github.io/raio-landing/fr/index.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="raio — une fondation de paiement instantané inspirée de Pix, pour les rails africains">
+<meta name="twitter:title" content="raio — une fondation de paiement instantané inspirée de Pix, conçue pour l'interopérabilité">
 <meta name="twitter:description" content="Couche de confiance sans IO, grand livre à double entrée event-sourced, et codecs QR Pix + EMVCo, livrés en crates indépendantes.">
 <meta name="twitter:image" content="https://andrewsarr.github.io/raio-landing/assets/img/og-image.jpg">
 
@@ -52,17 +52,18 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="rule"></span>Open source &middot; Rust &middot; conçu pour les rails africains</span>
-      <h1>Une fondation de paiement instantané, construite en <span class="accent">open source</span> — pour les rails africains et l'interopérabilité.</h1>
+      <span class="eyebrow"><span class="rule"></span>Open source &middot; Rust &middot; conçu pour l'interopérabilité</span>
+      <h1>Une fondation de paiement instantané, construite en <span class="accent">open source</span> — pour l'interopérabilité entre fournisseurs, devises et frontières.</h1>
       <p class="lead">
         raio s'inspire du Pix brésilien — résolution d'alias vers une clé de
         paiement, virement instantané 24/7, QR "copia e cola" — et en fait une
-        fondation correcte et fédérable. Elle est <strong>multi-devises</strong>
-        (les principales devises africaines, y compris les zones franc CFA sans
-        décimales) et <strong>compatible avec les standards</strong> (QR EMVCo,
-        ISO 20022, l'API GSMA Mobile Money, PAPSS). Ce n'est <strong>pas</strong>
-        une banque. Elle fournit les types de confiance et les points
-        d'extension ; la communauté construit les rails.
+        fondation correcte et fédérable pour tout marché. Elle est <strong>multi-devises</strong>
+        (un large éventail de devises, y compris certaines sans décimales
+        comme les zones franc CFA) et <strong>compatible avec les
+        standards</strong> (QR EMVCo, ISO 20022, l'API GSMA Mobile Money,
+        PAPSS). Ce n'est <strong>pas</strong> une banque. Elle fournit les
+        types de confiance et les points d'extension ; la communauté
+        construit les rails.
       </p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="https://github.com/andrewSarr/raio" target="_blank" rel="noopener">Voir sur GitHub</a>
@@ -112,11 +113,11 @@
       <div class="is">
         <h3>Est</h3>
         <ul>
-          <li><span class="mark">&check;</span>un type Money <strong>multi-devises</strong> (devises africaines, y compris sans décimales) en arithmétique entière vérifiée</li>
+          <li><span class="mark">&check;</span>un type Money <strong>multi-devises</strong> (large couverture de devises, y compris sans décimales) en arithmétique entière vérifiée</li>
           <li><span class="mark">&check;</span>un <em>modèle</em> de grand livre à double entrée, en ajout seul</li>
           <li><span class="mark">&check;</span>un <em>trait</em> <code>SettlementProvider</code> + un exemple naïf</li>
           <li><span class="mark">&check;</span>les codecs Pix BR Code <em>et</em> EMVCo QR (EMV TLV + CRC16-CCITT), purs et fuzzables</li>
-          <li><span class="mark">&check;</span>une fondation pensée pour les rails africains et l'interopérabilité, extensible par la communauté</li>
+          <li><span class="mark">&check;</span>une fondation pensée pour l'interopérabilité, extensible par la communauté à tout marché</li>
         </ul>
       </div>
       <div class="isnt">
@@ -138,8 +139,9 @@
     <div>
       <a href="index.html" class="brand"><span class="dot"></span>ra<span class="io">io</span></a>
       <p class="footer-note">
-        Double licence MIT OR Apache-2.0. Conçu pour les rails africains et
-        l'interopérabilité. Non affilié à Pix ni à la Banco Central do Brasil.
+        Double licence MIT OR Apache-2.0. Conçu pour l'interopérabilité entre
+        fournisseurs, devises et frontières. Non affilié à Pix ni à la Banco
+        Central do Brasil.
       </p>
     </div>
     <nav class="footer-links">
